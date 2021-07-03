@@ -9,22 +9,16 @@
         <link rel="stylesheet" href="">
         <script src="https://api-maps.yandex.ru/2.1/?apikey=deecf215-4b7f-4d84-bba1-dc6883fad996&lang=ru_RU" type="text/javascript"></script>
         <script type="text/javascript">
-            // Функция ymaps.ready() будет вызвана, когда
-            // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-            ymaps.ready(init);
-            function init(){
-                // Создание карты.
-                var myMap = new ymaps.Map("map", {
-                    // Координаты центра карты.
-                    // Порядок по умолчанию: «широта, долгота».
-                    // Чтобы не определять координаты центра карты вручную,
-                    // воспользуйтесь инструментом Определение координат.
+            const init = () => {
+                const myMap = new ymaps.Map("map", {
                     center: [43.097481, 131.864931],
-                    // Уровень масштабирования. Допустимые значения:
-                    // от 0 (весь мир) до 19.
-                    zoom: 12
+                    zoom: 15
                 });
+                const myPlacemark = new ymaps.Placemark([43.097481, 131.864931]);
+                myMap.geoObjects.add(myPlacemark);
             }
+            
+            ymaps.ready(init);
         </script>
     </head>
     <body>
